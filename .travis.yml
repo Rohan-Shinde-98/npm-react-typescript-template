@@ -1,0 +1,20 @@
+dist: focal
+os: linux
+cache: yarn
+git:
+  depth: false 
+
+language: node_js
+node_js: "12"
+
+
+jobs:
+  include:
+    - stage: build
+      name: Building
+      arch: amd64
+      script:
+      - npm run build
+      - npm version 1.0.0
+      - printf "//registry.npmjs.org/:_authToken=${CHE_NPM_AUTH_TOKEN}\n" >> ~/.npmrc
+      - npm publish
