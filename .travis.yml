@@ -15,6 +15,6 @@ jobs:
       arch: amd64
       script:
       - npm run build
-      - npm version 1.0.0
+      - npm version 1.0.1
       - printf "//registry.npmjs.org/:_authToken=${CHE_NPM_AUTH_TOKEN}\n" >> ~/.npmrc
       - npm publish
